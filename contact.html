@@ -1,8 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Homepage</title>
+<title>Contact</title>
 <link href="css\\assignment.css" rel="stylesheet" />
+<script>
+	function validateForm() {
+		var validname = document.forms["my Form"]["name"].value;
+		var validemail = document.forms["myForm"]["email"].value;
+		var validmessage = document.forms["myForm"]["feedback"].value;
+		if (validname == null || validname == "") {
+			document.getElementById('jsname').innerHTML = '* Full name';
+			alert("Name must be filled out");
+			return false;
+		}
+		if (validemail == null || validemail == "") {
+			document.getElementById('jsemail').innerHTML = '* Email';
+			alert("Email must be filled out");
+			return false;
+		}
+		if (validmessage == null || validmessage == "") {
+			document.getElementById('jsmessage').innerHTML = '* Message';
+			alert("Enter a message");
+			return false;
+		}
+	}
+</script>
 </head>
 
 <body>
@@ -42,19 +64,29 @@
 		  <li><button><a href="contact.html">Contact</a></button></li>
 		</ul>
 	</nav>
-	<h2> <a href="index.html">Home Page</a> </h2>
+	<h2> <a href="contact.html">Contact</a> </h2>
     <section>
-		<img src="images\\about.jpg" />
-		<p> Hello! This is Amrit Dumre and my future ambition is to become a PROGRAMMER. <br/>
-		This is my personal website which will help you to explore different <br/>
-		things about me.Student currently studying Bachelor of information technology<br/>
-		at Federation University, Australia</p>
-		</br>
-		<p>I am a geeky guy who wants to explore the IT world. In the programming </br>
-		field I am new but want to explore it in depth. I am a dedicated person </br>
-		and want to make new programs and applications in the future.<p>
-		<img src="images\\programmer.png"  background= "#00ff00"/>
+		<form name="myForm" onsubmit="return validateForm()" method="post">
+        <h1>Contact Form</h1>
+        <label>
+			<p id="jsname">Full name</p>
+			<input type="text" class="input_text" name="name" id="name" />
+        </label>
+        <label>
+			<p id="jsemail">Email</p>
+			<input type="email" class="input_text" name="email" id="email" />
+        </label>
+		<label>
+			<p id="jsmessage">Message</p>
+			<textarea class="message" name="feedback" id="feedback"></textarea>
+		</label>
+		<label>
+			<input type="submit" class="button" value="Submit" />
+        </label>
 	</section>
+	
+		
+	
 	
     <footer>
 		<p>Amrit Dumre  &copy; 2017</p>
